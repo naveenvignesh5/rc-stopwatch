@@ -2,6 +2,8 @@
 
 React.js implementation of stop watch.
 
+<img src="assets/demo.gif"><br>
+
 #### Props
 
 Prop              | Type     | Optional | Default     | Description
