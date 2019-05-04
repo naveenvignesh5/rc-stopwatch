@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.time {
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.buttonWrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn {
+    margin: 5px;
+    background-color: lightslategray;
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.btn-start {
+    background-color: green;
+}
+
+.btn-stop {
+    background-color: red;
+}
+
+.btn-reset {
+    background-color: lightblue;
+}

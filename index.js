@@ -1,9 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './chronometer.css';
+import './assets/stopwatch.css';
 
-class Chronometer extends PureComponent {
+// TODO: To be used for upcoming update
+// const TIME_FORMATS = [
+//     "hh:mm:ss",
+//     "h:m:s",
+//     "mm:ss",
+//     "m:s",
+//     "ss",
+//     "s",
+// ];
+
+class Stopwatch extends PureComponent {
     state = {
         runningMinutes: 0,
         runningSeconds: 0,
@@ -26,6 +36,17 @@ class Chronometer extends PureComponent {
                 runningHours += 1;
                 runningMinutes = 0;
             }
+
+            if (runningHours >= 24) {
+                runningHours = 0;
+            }
+
+            this.props.onTimeChange({
+                seconds: runningSeconds,
+                minutes: runningMinutes,
+                hours: runningHours,
+            });
+
             return { runningSeconds, runningMinutes, runningHours };
         });
     }
@@ -54,7 +75,11 @@ class Chronometer extends PureComponent {
         }, () => clearInterval(this.timer));
     }
 
-    format = (number) => number < 10 ? `0${number}` : `${number}`;
+    formatNumber = (number) => number < 10 ? `0${number}` : `${number}`;
+
+    renderFormatedTime = () => {
+        return `${this.formatNumber(this.state.runningHours)} : ${this.formatNumber(this.state.runningMinutes)} : ${this.formatNumber(this.state.runningSeconds)}`;
+    }
 
     render() {
         const {
@@ -71,7 +96,7 @@ class Chronometer extends PureComponent {
         return (
             <div className={`container ${containerClass}`} style={containerStyle}>
                 <div className={`time ${timeTextClass}`} style={timeTextStyle}>
-                    {this.format(this.state.runningHours)} : {this.format(this.state.runningMinutes)} : {this.format(this.state.runningSeconds)}
+                    {this.renderFormatedTime()}
                 </div>
                 <div className={`buttonWrapper ${buttonContainerClass}`}>
                     <button
@@ -98,7 +123,7 @@ class Chronometer extends PureComponent {
     }
 }
 
-Chronometer.propTypes = {
+Stopwatch.propTypes = {
     timeTextStyle: PropTypes.object,
     buttonStyle: PropTypes.object,
     startButtonStyle: PropTypes.object,
@@ -112,9 +137,11 @@ Chronometer.propTypes = {
     containerClass: PropTypes.string,
     buttonContainerClass: PropTypes.string,
     timeTextClass: PropTypes.string,
+    onTimeChange: PropTypes.func,
+    format: PropTypes.string,
 }
 
-Chronometer.defaultProps = {
+Stopwatch.defaultProps = {
     timeTextStyle: {},
     buttonStyle: {},
     startButtonStyle: {},
@@ -128,6 +155,7 @@ Chronometer.defaultProps = {
     containerClass: "",
     buttonContainerClass: "",
     timeTextClass: "",
+    onTimeChange: () => { },
 };
 
-export default Chronometer;
+export default Stopwatch;

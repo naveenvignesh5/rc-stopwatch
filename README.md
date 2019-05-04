@@ -21,3 +21,4 @@ resetButtonClass  | String   | Yes      | ""      | Reset Button CSS class name
 containerClass    | String   | Yes      | ""      | Chronometer Container CSS class name
 buttonContainerClass   | String   | Yes      | ""      | Button Container CSS class name
 timeTextClass     | String   | Yes      | ""      | Time Text CSS class
+onTimeChange      | function | Yes      | () => {}      | Callback function to get time object { seconds, minutes, hours }
