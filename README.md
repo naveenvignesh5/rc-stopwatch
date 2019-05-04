@@ -22,3 +22,25 @@ containerClass    | String   | Yes      | ""      | Chronometer Container CSS cl
 buttonContainerClass   | String   | Yes      | ""      | Button Container CSS class name
 timeTextClass     | String   | Yes      | ""      | Time Text CSS class
 onTimeChange      | function | Yes      | () => {}      | Callback function to get time object { seconds, minutes, hours }
+
+#### Usage
+
+```javascript
+import RCStopwatch from 'rc-stopwatch';
+
+// App.js
+const App = () => (
+  <RCStopwatch
+    // style props
+    timeTextStyle={{ fontSize: "16px" }}
+    // Callback to get time lapsed
+    onTimeChange={timelapsed => console.log(timelapsed)} // { seconds: 1, minutes: 2, hours: 3 }
+  />
+);
+
+export default App;
+```
+
+#### Things yet to be done
+
+- [ ] Implement timer
