@@ -1,24 +1,29 @@
 {
-  "name": "react-chronometer",
-  "version": "1.0.0",
-  "description": "Simple Chronometer in React.js",
+  "name": "react-stopwatch",
+  "version": "0.0.1",
+  "description": "Simple stopwatch in React.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:naveenvignesh5/react-native-otp-textinput.git"
+    "url": "git@github.com:naveenvignesh5/react-stopwatch.git"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
   },
   "keywords": [
     "react",
     "stopwatch",
     "chronometer",
-    "web",
     "reactjs",
     "react-chronometer",
     "react-stopwatch"
   ],
-  "author": "Naveen Vignesh.B",
-  "license": "ISC"
+  "author": "Naveen Vignesh.B <naveenvignesh5.nv@gmail.com>",
+  "license": "MIT"
 }
