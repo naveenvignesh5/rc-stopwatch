@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './assets/stopwatch.css';
+import './stopwatch.css';
 
 // TODO: To be used for upcoming update
 // const TIME_FORMATS = [

@@ -2,17 +2,17 @@
   "name": "rc-stopwatch",
   "version": "0.0.1",
   "description": "Simple stopwatch in React.js",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:naveenvignesh5/react-stopwatch.git"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.6"
   },
@@ -25,5 +25,14 @@
     "react-stopwatch"
   ],
   "author": "Naveen Vignesh.B <naveenvignesh5.nv@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "prop-types": "^15.7.2"
+  }
 }
