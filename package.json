@@ -1,5 +1,5 @@
 {
-  "name": "react-stopwatch",
+  "name": "rc-stopwatch",
   "version": "0.0.1",
   "description": "Simple stopwatch in React.js",
   "main": "index.js",
