@@ -14,11 +14,25 @@ import './stopwatch.css';
 // ];
 
 class Stopwatch extends PureComponent {
-    state = {
-        runningMinutes: 0,
-        runningSeconds: 0,
-        runningHours: 0,
-        running: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            runningMinutes: 0,
+            runningSeconds: 0,
+            runningHours: 0,
+            running: false,
+        };
+
+        const {
+            buttonStyle,
+            startButtonStyle,
+            pauseButtonStyle,
+            resetButtonStyle
+        } = this.props;
+
+        this.startBtnStyle = Object.assign({}, buttonStyle, startButtonStyle);
+        this.pauseBtnStyle = Object.assign({}, buttonStyle, pauseButtonStyle);
+        this.resetBtnStyle = Object.assign({}, buttonStyle, resetButtonStyle);
     }
 
     computeTime = () => {
@@ -83,15 +97,10 @@ class Stopwatch extends PureComponent {
 
     render() {
         const {
-            timeTextStyle, buttonStyle, startButtonStyle,
-            pauseButtonStyle, resetButtonStyle, containerStyle,
-            buttonClass, startButtonClass, pauseButtonClass, resetButtonClass,
+            timeTextStyle, containerStyle, buttonClass,
+            startButtonClass, pauseButtonClass, resetButtonClass,
             containerClass, timeTextClass, buttonContainerClass,
         } = this.props;
-
-        const startBtnStyle = Object.assign({}, buttonStyle, startButtonStyle);
-        const pauseBtnStyle = Object.assign({}, buttonStyle, pauseButtonStyle);
-        const resetBtnStyle = Object.assign({}, buttonStyle, resetButtonStyle);
 
         return (
             <div className={`container ${containerClass}`} style={containerStyle}>
@@ -100,19 +109,19 @@ class Stopwatch extends PureComponent {
                 </div>
                 <div className={`buttonWrapper ${buttonContainerClass}`}>
                     <button
-                        style={startBtnStyle}
+                        style={this.startBtnStyle}
                         className={`btn btn-start ${buttonClass} ${startButtonClass}`}
                         onClick={this.start}>
                         Start
                     </button>
                     <button
-                        style={pauseBtnStyle}
+                        style={this.pauseBtnStyle}
                         className={`btn btn-stop ${buttonClass} ${pauseButtonClass}`}
                         onClick={this.pause}>
                         Pause
                     </button>
                     <button
-                        style={resetBtnStyle}
+                        style={this.resetBtnStyle}
                         className={`btn btn-reset ${buttonClass} ${resetButtonClass}`}
                         onClick={this.reset}>
                         Reset
