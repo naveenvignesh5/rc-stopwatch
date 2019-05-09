@@ -97,9 +97,10 @@ class Stopwatch extends PureComponent {
 
     render() {
         const {
-            timeTextStyle, containerStyle, buttonClass,
+            timeTextStyle, containerStyle, buttonClass, buttonContainerStyle,
             startButtonClass, pauseButtonClass, resetButtonClass,
             containerClass, timeTextClass, buttonContainerClass,
+            startButtonText, pauseButtonText, resetButtonText,
         } = this.props;
 
         return (
@@ -107,24 +108,24 @@ class Stopwatch extends PureComponent {
                 <div className={`time ${timeTextClass}`} style={timeTextStyle}>
                     {this.renderFormatedTime()}
                 </div>
-                <div className={`buttonWrapper ${buttonContainerClass}`}>
+                <div className={`buttonWrapper ${buttonContainerClass}`} style={buttonContainerStyle}>
                     <button
                         style={this.startBtnStyle}
                         className={`btn btn-start ${buttonClass} ${startButtonClass}`}
                         onClick={this.start}>
-                        Start
+                        {startButtonText}
                     </button>
                     <button
                         style={this.pauseBtnStyle}
                         className={`btn btn-stop ${buttonClass} ${pauseButtonClass}`}
                         onClick={this.pause}>
-                        Pause
+                        {pauseButtonText}
                     </button>
                     <button
                         style={this.resetBtnStyle}
                         className={`btn btn-reset ${buttonClass} ${resetButtonClass}`}
                         onClick={this.reset}>
-                        Reset
+                        {resetButtonText}
                     </button>
                 </div>
             </div>
@@ -135,6 +136,7 @@ class Stopwatch extends PureComponent {
 Stopwatch.propTypes = {
     timeTextStyle: PropTypes.object,
     buttonStyle: PropTypes.object,
+    buttonContainerStyle: PropTypes.object,
     startButtonStyle: PropTypes.object,
     pauseButtonStyle: PropTypes.object,
     resetButtonStyle: PropTypes.object,
@@ -147,12 +149,16 @@ Stopwatch.propTypes = {
     buttonContainerClass: PropTypes.string,
     timeTextClass: PropTypes.string,
     onTimeChange: PropTypes.func,
+    startButtonText: PropTypes.string,
+    pauseButtonText: PropTypes.string,
+    resetButtonText: PropTypes.string,
     format: PropTypes.string,
 }
 
 Stopwatch.defaultProps = {
     timeTextStyle: {},
     buttonStyle: {},
+    buttonContainerStyle: {},
     startButtonStyle: {},
     pauseButtonStyle: {},
     resetButtonStyle: {},
@@ -164,7 +170,10 @@ Stopwatch.defaultProps = {
     containerClass: "",
     buttonContainerClass: "",
     timeTextClass: "",
-    onTimeChange: () => { },
+    onTimeChange: () => {},
+    startButtonText: "Start",
+    pauseButtonText: "Pause",
+    resetButtonText: "Reset",
 };
 
 export default Stopwatch;
